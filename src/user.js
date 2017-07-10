@@ -17,6 +17,14 @@ const UserSchema = mongoose.Schema({
     }]
 })
 
+UserSchema.pre('remove', function(next){
+    const Posts = mongoose.model('post')
+    console.log('I am hereeeeee')
+    Posts.remove({ _id: {  $in: this.posts   }    })
+        .then( () => next() )
+})
+
+
 const User = mongoose.model('user',UserSchema)
 
 

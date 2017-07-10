@@ -19,7 +19,7 @@ describe("Test associate ", () => {
     Promise.all([khoa.save(), post.save(), comment.save()]).then(() => done());
   });
 
-  xit("test create ", done => {
+  it("test create ", done => {
     User.findOne({ name: "khoa" }).populate("posts").
     then(user => {
     //   assert( user.posts[0].title === "FUCK JS" )
@@ -28,7 +28,7 @@ describe("Test associate ", () => {
     });
   });
 
-  it.only("test population", done => {
+  it("test population", done => {
 
     User.findOne( { name: 'khoa' } )
         .populate({
