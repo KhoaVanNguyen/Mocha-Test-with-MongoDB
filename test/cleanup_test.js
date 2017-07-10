@@ -20,9 +20,9 @@ describe("Test cleanup ", () => {
     Promise.all([khoa.save(), post.save(), comment.save()]).then(() => done());
   });
 
-  it.only("test remove", done => {
+  it("test remove", done => {
     khoa.remove().then(() => Post.count()).then(count => {
-      console.log(count);
+    //   console.log(count);
       assert(count === 0);
       done();
     });
